@@ -11,6 +11,6 @@ namespace DynamicVendors.Models
         public string Name { get; set; }
         public string UserName { get; set; }
         public string UserPassword { get; set; }
-        List<Vendor> vendors { get; set; }
+        public List <Vendor> vendors { get; set; }
     }
 }
