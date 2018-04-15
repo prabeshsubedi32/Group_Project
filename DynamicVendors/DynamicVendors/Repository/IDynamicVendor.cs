@@ -13,7 +13,7 @@ namespace DynamicVendors.Repository
         List<Admin> GetAdmin();
         Admin GetAdmin(int Id);
         void Remove(int id);
-        void Update(int id);
+        void Update(Admin id);
 
         void AddVendor(Vendor vendor);
         List<Vendor> GetList();

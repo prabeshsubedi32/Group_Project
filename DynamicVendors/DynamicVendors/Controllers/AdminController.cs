@@ -29,6 +29,7 @@ namespace DynamicVendors.Controllers
 
         public ActionResult AddAdmin(Admin admin)
         {
+
             _data.Add(admin);
             
             return View("createAdmin");
@@ -36,8 +37,16 @@ namespace DynamicVendors.Controllers
 
         public ActionResult updateAdmin(int id)
         {
-            _data.Update(id);
-            return View();
+            Admin tobeupaded = _data.GetAdmin().Where(x => x.Id == id).FirstOrDefault();
+            return View(tobeupaded);
+           
+        }
+
+      public ActionResult update(Admin admin)
+        {
+            _data.Update(admin);
+
+            return View("Display");
         }
 
         public ActionResult Display()

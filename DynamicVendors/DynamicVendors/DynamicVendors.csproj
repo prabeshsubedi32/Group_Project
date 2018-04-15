@@ -175,6 +175,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VendorController.cs" />
+    <Compile Include="Controllers\VendorsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -233,6 +234,7 @@
     <Content Include="Views\Vendor\updateVendor.cshtml" />
     <Content Include="Views\Vendor\displayVendor.cshtml" />
     <Content Include="Views\Vendor\RemoveVendor.cshtml" />
+    <Content Include="Views\Vendors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

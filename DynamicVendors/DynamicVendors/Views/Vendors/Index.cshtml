@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+
+<input type="button" name="name" value="GetData" onclick="GetData();" />
+<input id="idText" type="text" />
+<input type="button" name="name" value="getAdmin" onclick="getAdmin();" />
+
+<div id="admin"></div>
+<div id="singleAdmin"></div>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@section Scripts
+{
+
+    <script>
+
+
+        function getAdmin(){
+            var html;
+            $.get("http://localhost:51701/api/values/" + $("#idText").val(), function (data) {
+                html = "<table border='1'>";
+               
+               
+                    html = html + "<tr>"
+                    html = html + "<td>" + data.Id + "</td>" + "<td>" + data.UserName + "</td>"
+                    html = html + "</tr>"
+   
+                html = html + "</table>"
+                $("#singleAdmin").append(html);
+            });
+        }
+
+        function GetData() {
+            var html;
+            $.get("http://localhost:51701/api/values", function (data) {
+                html = "<table border='1'>";
+
+                for (var i = 0; i < data.length; i++) {
+                    html = html + "<tr>"
+                    html = html + "<td>" + data[i].Id + "</td>" + "<td>" + data[i].UserName + "</td>"
+                    html = html + "</tr>"
+                }
+                html = html + "</table>"
+                $("#admin").append(html);
+            });
+        }
+
+
+    </script>
+
+
+}
+

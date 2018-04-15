@@ -1,36 +1,38 @@
 ﻿@model DynamicVendors.Models.Admin
 
-<div>
-    <h4>Admin</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+@using (Html.BeginForm("AddAdmin", "Admin"))
+{
+    <div>
+        <h4>Admin</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.UserName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UserPassword)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.UserPassword)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.UserPassword)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.UserPassword)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "updateAdmin", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List","Display", "Admin")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "updateAdmin", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Display", "Admin")
+    </p>

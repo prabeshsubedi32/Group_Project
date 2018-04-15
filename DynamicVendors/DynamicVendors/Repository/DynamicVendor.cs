@@ -44,12 +44,22 @@ namespace DynamicVendors.Repository
             }
         }
 
-        public void Update(int id)
+        public void Update(Admin admin)
         {
             DynamicDBContext data = new DynamicDBContext();
-            Admin user = data.admin.ToList().Find(x => x.Id == id);
-            data.admin.Add(user);
-            data.SaveChanges();
+            //  Admin user = data.admin.ToList().Find(x => x.Id == id);
+            try
+            {
+                data.Entry(admin).State = System.Data.Entity.EntityState.Modified;
+
+                //data.admin.Add(user);
+                data.SaveChanges();
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+
         }
 
 
