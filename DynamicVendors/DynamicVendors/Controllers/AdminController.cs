@@ -23,6 +23,7 @@ namespace DynamicVendors.Controllers
 
         public ActionResult createAdmin()
         {
+            
 
             return View();
         }

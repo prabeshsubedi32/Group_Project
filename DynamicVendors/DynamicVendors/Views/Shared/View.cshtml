@@ -1,0 +1,20 @@
+﻿@model IEnumerable<DynamicVendors.Models.MenuList>
+
+@*@foreach (var item in Model )
+{
+
+}*@
+
+
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        @{
+        foreach (var item in Model)
+        {
+            <li>
+        @Html.ActionLink(item.LinkName, item.ActionName, item.ContollerName)</li>
+    }
+        }
+
+        
+    </ul>
