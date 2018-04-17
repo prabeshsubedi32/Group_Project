@@ -21,6 +21,38 @@ namespace DynamicVendors.Controllers
             return View();
         }
 
+        public ActionResult LogIn()
+        {
+
+            return View();
+        }
+
+        public ActionResult Validate(string txtUsername, string txtUserpassword)
+        {
+            if(_data.GetAdmin().ToList().Where(x=> x.UserName==txtUsername && x.UserPassword == txtUserpassword).Any())
+            {
+                Session["UserType"] = 1;
+                return View();
+            }
+
+            else if (_data.GetVendor().ToList().Where(x => x.UserName == txtUsername && x.UserPassword == txtUserpassword).Any())
+            {
+                Session["UserType"] = 2;
+                return View();
+            }
+
+            else if (_data.GetVendor().ToList().Where(x => x.UserName == txtUsername && x.UserPassword == txtUserpassword).Any())
+            {
+                Session["UserType"] = 3;
+                return View();
+            }
+
+            else
+            {
+                return View();
+            }
+        }
+
         public ActionResult createAdmin()
         {
             

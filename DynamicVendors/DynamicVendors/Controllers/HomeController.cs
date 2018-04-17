@@ -11,7 +11,7 @@ namespace DynamicVendors.Controllers
     {
         public ActionResult Index()
         {
-            List<MenuList> menuLists = new List<MenuList>();
+          /*  List<MenuList> menuLists = new List<MenuList>();
 
             int roleid = 2;
             if (roleid == 1)
@@ -63,7 +63,7 @@ namespace DynamicVendors.Controllers
 
                 });
             }
-               Session["Menus"] = menuLists;
+               Session["Menus"] = menuLists;*/
             return View();
         }
 
