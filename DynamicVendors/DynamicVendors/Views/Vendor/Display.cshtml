@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DynamicVendors.Models.Vendor>
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>VendorList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Vendor", "createVendor")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VendorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserPassword)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VendorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserPassword)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "updateVendor", new { id=item.VendorId }) |
+            @Html.ActionLink("Details", "displayVendor", new { id=item.VendorId }) |
+            @Html.ActionLink("Delete", "RemoveVendor", new { id=item.VendorId })
+        </td>
+    </tr>
+}
+
+</table>
