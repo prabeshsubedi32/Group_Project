@@ -17,7 +17,7 @@ namespace DynamicVendors.Repository
 
         void AddVendor(Vendor vendor);
         List<Vendor> GetVendor();
-        Vendor GetVendor(int VendorId);
+        Vendor GetVendor(int id);
         void RemoveVendor(int id);
         void UpdateVendor(Vendor vendor);
 

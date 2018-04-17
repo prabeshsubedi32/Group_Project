@@ -128,7 +128,7 @@ namespace DynamicVendors.Repository
             DynamicDBContext data = new DynamicDBContext();
             return data.vendors.ToList();
 
-           // throw new NotImplementedException();
+           throw new NotImplementedException();
         }
     }
 }
