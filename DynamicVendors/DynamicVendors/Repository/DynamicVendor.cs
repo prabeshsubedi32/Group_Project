@@ -86,12 +86,6 @@ namespace DynamicVendors.Repository
 
         }
 
-        public List<Vendor> GetVendor()
-        {
-            DynamicDBContext data = new DynamicDBContext();
-            return data.vendors.ToList();
-        }
-
         public Vendor GetVendor(int Id)
         {
             DynamicDBContext data = new DynamicDBContext();
@@ -114,13 +108,13 @@ namespace DynamicVendors.Repository
             }
         }
 
-        public void UpdateVendor(int id)
+        public void UpdateVendor(Vendor user)
         {
             try
             {
                 DynamicDBContext data = new DynamicDBContext();
-                Vendor user = data.vendors.ToList().Find(x => x.VendorId == id);
-                data.vendors.Add(user);
+                data.Entry(user).State = System.Data.Entity.EntityState.Modified;
+               // data.vendors.Add(user);
                 data.SaveChanges();
             }
             catch (Exception)
@@ -129,9 +123,12 @@ namespace DynamicVendors.Repository
             }
         }
 
-        public List<Vendor> GetList()
+        public List<Vendor> GetVendor()
         {
-            throw new NotImplementedException();
+            DynamicDBContext data = new DynamicDBContext();
+            return data.vendors.ToList();
+
+           throw new NotImplementedException();
         }
     }
 }

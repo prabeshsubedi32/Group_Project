@@ -7,7 +7,7 @@
 <h2>createVendor</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("AddVendor", "Vendor")) 
 {
     @Html.AntiForgeryToken()
     
@@ -15,13 +15,13 @@
         <h4>Vendor</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.VendorId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.VendorId, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.VendorId, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.VendorName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -56,7 +56,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Display", "Vendor")
 </div>
 
 @section Scripts {

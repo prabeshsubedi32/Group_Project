@@ -34,16 +34,24 @@ namespace DynamicVendors.Controllers
 
         public ActionResult updateVendor(int id)
         {
-            _data.UpdateVendor(id);
-            return View();
+            Vendor tobeupaded = _data.GetVendor().Where(x => x.VendorId == id).FirstOrDefault();
+            return View(tobeupaded);
+
         }
 
-        //public ActionResult Display()
-        //{
-        //    var data = _data.GetVendor();
+        public ActionResult update(Vendor vendor)
+        {
+            _data.UpdateVendor(vendor);
 
-        //    return View(data);
-        //}
+            return View("Display", _data.GetVendor());
+        }
+
+        public ActionResult Display()
+        {
+            var data = _data.GetVendor();
+
+            return View(data);
+        }
 
         public ActionResult displayVendor(int id)
         {
@@ -54,7 +62,7 @@ namespace DynamicVendors.Controllers
 
         public ActionResult RemoveVendor(int id)
         {
-            _data.Remove(id);
+            _data.RemoveVendor(id);
 
             return View();
         }

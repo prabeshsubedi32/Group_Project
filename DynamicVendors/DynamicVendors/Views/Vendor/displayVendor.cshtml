@@ -11,14 +11,6 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.VendorId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VendorId)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.VendorName)
         </dt>
 
@@ -45,6 +37,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "UpdateVendor", new { id = Model.VendorId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VendorId }) |
     @Html.ActionLink("Back to List", "Display", "Vendor")
 </p>
