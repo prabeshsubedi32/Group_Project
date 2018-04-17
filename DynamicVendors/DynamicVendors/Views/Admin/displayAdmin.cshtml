@@ -1,6 +1,6 @@
 ﻿@model DynamicVendors.Models.Admin
 
-@using (Html.BeginForm("AddAdmin", "Admin"))
+@using (Html.BeginForm("displayAdmin", "Admin"))
 {
     <div>
         <h4>Admin</h4>
@@ -32,6 +32,7 @@
 
         </dl>
     </div>
+}
     <p>
         @Html.ActionLink("Edit", "updateAdmin", new { id = Model.Id }) |
         @Html.ActionLink("Back to List", "Display", "Admin")

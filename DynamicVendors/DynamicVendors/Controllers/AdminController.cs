@@ -35,19 +35,6 @@ namespace DynamicVendors.Controllers
             return View("createAdmin");
         }
 
-        public ActionResult updateAdmin(int id)
-        {
-            Admin tobeupaded = _data.GetAdmin().Where(x => x.Id == id).FirstOrDefault();
-            return View(tobeupaded);
-           
-        }
-
-      public ActionResult update(Admin admin)
-        {
-            _data.Update(admin);
-
-            return View("Display");
-        }
 
         public ActionResult Display()
         {
@@ -61,6 +48,20 @@ namespace DynamicVendors.Controllers
             var data = _data.GetAdmin(id);
             return View(data);
 
+        }
+
+        public ActionResult updateAdmin(int id)
+        {
+            Admin tobeupaded = _data.GetAdmin().Where(x => x.Id == id).FirstOrDefault();
+            return View(tobeupaded);
+
+        }
+
+        public ActionResult update(Admin admin)
+        {
+            _data.Update(admin);
+
+            return View("Display", _data.GetAdmin());
         }
 
         public ActionResult Remove(int id)

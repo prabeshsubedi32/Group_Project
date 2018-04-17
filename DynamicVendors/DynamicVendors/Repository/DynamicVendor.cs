@@ -6,13 +6,21 @@ using System.Web;
 
 namespace DynamicVendors.Repository
 {
-    public class DynamicVendor:IDynamicVendor
+    public class DynamicVendor : IDynamicVendor
     {
         public void Add(Admin admin)
         {
-            DynamicDBContext data = new DynamicDBContext();
-            data.admin.Add(admin);
-            data.SaveChanges();
+            try
+            {
+                DynamicDBContext data = new DynamicDBContext();
+                data.admin.Add(admin);
+                data.SaveChanges();
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+
 
         }
 
@@ -32,26 +40,25 @@ namespace DynamicVendors.Repository
         {
             try
             {
-             DynamicDBContext data = new DynamicDBContext();
-            Admin user = data.admin.ToList().Find(x => x.Id == id);
-            data.admin.Remove(user);
-            data.SaveChanges();
-
+                DynamicDBContext data = new DynamicDBContext();
+                Admin user = data.admin.ToList().Find(x => x.Id == id);
+                data.admin.Remove(user);
+                data.SaveChanges();
             }
-            catch (Exception )
+            catch (Exception)
             {
-               // throw;
+                // throw;
             }
         }
 
         public void Update(Admin admin)
         {
-            DynamicDBContext data = new DynamicDBContext();
+
             //  Admin user = data.admin.ToList().Find(x => x.Id == id);
             try
             {
+                DynamicDBContext data = new DynamicDBContext();
                 data.Entry(admin).State = System.Data.Entity.EntityState.Modified;
-
                 //data.admin.Add(user);
                 data.SaveChanges();
             }
@@ -66,9 +73,16 @@ namespace DynamicVendors.Repository
 
         public void AddVendor(Vendor vendor)
         {
-            DynamicDBContext data = new DynamicDBContext();
-            data.vendors.Add(vendor);
-            data.SaveChanges();
+            try
+            {
+                DynamicDBContext data = new DynamicDBContext();
+                data.vendors.Add(vendor);
+                data.SaveChanges();
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
 
         }
 
@@ -102,10 +116,17 @@ namespace DynamicVendors.Repository
 
         public void UpdateVendor(int id)
         {
-            DynamicDBContext data = new DynamicDBContext();
-            Vendor user = data.vendors.ToList().Find(x => x.VendorId == id);
-            data.vendors.Add(user);
-            data.SaveChanges();
+            try
+            {
+                DynamicDBContext data = new DynamicDBContext();
+                Vendor user = data.vendors.ToList().Find(x => x.VendorId == id);
+                data.vendors.Add(user);
+                data.SaveChanges();
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
         }
 
         public List<Vendor> GetList()
