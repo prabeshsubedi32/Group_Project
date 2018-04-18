@@ -128,7 +128,73 @@ namespace DynamicVendors.Repository
             DynamicDBContext data = new DynamicDBContext();
             return data.vendors.ToList();
 
-           throw new NotImplementedException();
+           //throw new NotImplementedException();
+        }
+
+
+
+
+        public void AddUser(User users)
+        {
+            try
+            {
+                DynamicDBContext data = new DynamicDBContext();
+                data.users.Add(users);
+                data.SaveChanges();
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+            //throw new NotImplementedException();
+        }
+
+        public List<User> GetUser()
+        {
+            DynamicDBContext data = new DynamicDBContext();
+            return data.users.ToList();
+
+           // throw new NotImplementedException();
+        }
+
+        public User GetUser(int id)
+        {
+            DynamicDBContext data = new DynamicDBContext();
+            return data.users.ToList().Find(x => x.UserID == id);
+            //throw new NotImplementedException();
+        }
+
+        public void RemoveUser(int id)
+        {
+            try
+            {
+                DynamicDBContext data = new DynamicDBContext();
+                User user = data.users.ToList().Find(x => x.UserID == id);
+                data.users.Remove(user);
+                data.SaveChanges();
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+            //throw new NotImplementedException();
+        }
+
+        public void UpdateUser(User users)
+        {
+            //  Admin user = data.admin.ToList().Find(x => x.Id == id);
+            try
+            {
+                DynamicDBContext data = new DynamicDBContext();
+                data.Entry(users).State = System.Data.Entity.EntityState.Modified;
+                //data.admin.Add(user);
+                data.SaveChanges();
+            }
+            catch (Exception)
+            {
+                // throw;
+            }
+            //throw new NotImplementedException();
         }
     }
 }

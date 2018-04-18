@@ -11,5 +11,6 @@ namespace DynamicVendors.Repository
     {
         public DbSet<Admin> admin { get; set; }
         public DbSet<Vendor> vendors { get; set; }
+        public DbSet<User> users { get; set; }
     }
 }

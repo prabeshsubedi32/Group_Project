@@ -8,10 +8,10 @@ using DynamicVendors.Repository;
 
 namespace DynamicVendors.Controllers
 {
-    public class AdminController : Controller
+    public class UserController : Controller
     {
         private IDynamicVendor _data;
-        public AdminController(IDynamicVendor dynamicVendor )
+        public UserController(IDynamicVendor dynamicVendor)
         {
             _data = dynamicVendor;
         }
@@ -21,53 +21,52 @@ namespace DynamicVendors.Controllers
             return View();
         }
 
-        public ActionResult createAdmin()
+        public ActionResult createUser()
         {
             
-
             return View();
         }
 
-        public ActionResult AddAdmin(Admin admin)
+        public ActionResult AddUser(User user)
         {
 
-            _data.Add(admin);
-            
-            return View("createAdmin");
+            _data.AddUser(user);
+
+            return View("createUser");
         }
 
 
         public ActionResult Display()
         {
-           var data =  _data.GetAdmin();
+            var data = _data.GetUser();
 
             return View(data);
         }
 
-        public ActionResult displayAdmin(int id)
+        public ActionResult displayUser(int id)
         {
-            var data = _data.GetAdmin(id);
+            var data = _data.GetUser(id);
             return View(data);
 
         }
 
-        public ActionResult updateAdmin(int id)
+        public ActionResult updateUser(int id)
         {
-            Admin tobeupaded = _data.GetAdmin().Where(x => x.Id == id).FirstOrDefault();
+            User tobeupaded = _data.GetUser().Where(x => x.UserID == id).FirstOrDefault();
             return View(tobeupaded);
 
         }
 
-        public ActionResult update(Admin admin)
+        public ActionResult update(User users)
         {
-            _data.Update(admin);
+            _data.UpdateUser(users);
 
-            return View("Display", _data.GetAdmin());
+            return View("Display", _data.GetUser());
         }
 
         public ActionResult Remove(int id)
         {
-            _data.Remove(id);
+            _data.RemoveUser(id);
 
             return View();
         }

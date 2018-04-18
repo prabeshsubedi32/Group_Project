@@ -11,59 +11,79 @@ namespace DynamicVendors.Controllers
     {
         public ActionResult Index()
         {
-            //List<MenuList> menuLists = new List<MenuList>();
+            List<MenuList> menuLists = new List<MenuList>();
 
-            //int roleid = 2;
-            //if (roleid == 1)
-            //{
-            //    menuLists.Add(new MenuList
-            //    {
-            //        Id = 1,
-            //        LinkName = "Home",
-            //        ActionName = "Index",
-            //        ControllerName = "Home"
 
-            //    });
+            if ( Convert.ToString(Session["userType"]) == Convert.ToString(1))
+            {
+                menuLists.Add(new MenuList
+                {
+                    Id = 1,
+                    LinkName = "CreateAdmin",
+                    ActionName = "CreateAdmin",
+                    ControllerName = "Admin"
 
-            //    menuLists.Add(new MenuList
-            //    {
-            //        Id = 1,
-            //        LinkName = "Admin",
-            //        ActionName = "Index",
-            //        ControllerName = "Admin"
+                });
 
-            //    });
-            //}
+                menuLists.Add(new MenuList
+                {
+                    Id = 2,
+                    LinkName = "CreateVendor",
+                    ActionName = "CreateVendor",
+                    ControllerName = "Vendor"
 
-            //else if (roleid == 2)
-            //{
-            //    menuLists.Add(new MenuList
-            //    {
-            //        Id = 1,
-            //        LinkName = "Home",
-            //        ActionName = "Index",
-            //        ControllerName = "Home"
+                });
 
-            //    });
+                menuLists.Add(new MenuList
+                {
+                    Id = 3,
+                    LinkName = "Display Vendor",
+                    ActionName = "Display",
+                    ControllerName = "Vendor"
+                });
+            }
+            if (Convert.ToString(Session["userType"]) == Convert.ToString(2))
+            {
+                menuLists.Add(new MenuList
+                {
+                    Id = 1,
+                    LinkName = "CreateVendor",
+                    ActionName = "CreateVendor",
+                    ControllerName = "Vendor"
 
-            //    menuLists.Add(new MenuList
-            //    {
-            //        Id = 1,
-            //        LinkName = "Xyz",
-            //        ActionName = "Index",
-            //        ControllerName = "Admin"
+                });
 
-            //    });
-            //    menuLists.Add(new MenuList
-            //    {
-            //        Id = 1,
-            //        LinkName = "Abc",
-            //        ActionName = "Index",
-            //        ControllerName = "Admin"
+                menuLists.Add(new MenuList
+                {
+                    Id = 2,
+                    LinkName = "Display Vendor",
+                    ActionName = "Display",
+                    ControllerName = "Vendor"
+                });
 
-            //    });
-            //}
-            //   Session["Menus"] = menuLists;
+                menuLists.Add(new MenuList
+                {
+                    Id = 3,
+                    LinkName = "Display User",
+                    ActionName = "Display",
+                    ControllerName = "Vendor"
+                });
+            }
+
+            if (Convert.ToString(Session["userType"]) == Convert.ToString(3))
+            {
+                menuLists.Add(new MenuList
+                {
+                    Id = 1,
+                    LinkName = "CreateUser",
+                    ActionName = "createUser",
+                    ControllerName = "User"
+
+                });
+
+
+            }
+            Session["Menus"] = menuLists;
             return View();
         }
 

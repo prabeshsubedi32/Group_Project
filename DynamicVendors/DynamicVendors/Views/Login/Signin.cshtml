@@ -6,7 +6,9 @@
 
 <h2>Login</h2>
 
-<form action="Validate" method="post">
+@*<form action="Validate" method="post">*@
+@using (Html.BeginForm("Validate", "Login"))
+{
     <h1>
         @{
             @ViewBag.Message
@@ -26,5 +28,6 @@
             <td col2><input type="submit" name="submit" value="Login" /></td>
         </tr>
     </table>
-</form>
+            }
+    @*</form>*@
 

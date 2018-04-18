@@ -15,6 +15,7 @@ namespace DynamicVendors.Models
         public string UserName { get; set; }
         [DataType(DataType.Password)]
         public string UserPassword { get; set; }
+
        // List<Vendor> vendors { get; set; }
     }
 }
