@@ -39,7 +39,7 @@ namespace DynamicVendors.Controllers
                 Session["UserType"] = 3;
                 return RedirectToAction("Index", "Home");
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Invalid");
         //   return View();
         }
     }

@@ -66,7 +66,15 @@ namespace DynamicVendors.Controllers
                     Id = 3,
                     LinkName = "Display User",
                     ActionName = "Display",
-                    ControllerName = "Vendor"
+                    ControllerName = "User"
+                });
+
+                menuLists.Add(new MenuList
+                {
+                    Id = 3,
+                    LinkName = "Create User",
+                    ActionName = "createUser",
+                    ControllerName = "User"
                 });
             }
 
@@ -80,8 +88,6 @@ namespace DynamicVendors.Controllers
                     ControllerName = "User"
 
                 });
-
-
             }
             Session["Menus"] = menuLists;
             return View();

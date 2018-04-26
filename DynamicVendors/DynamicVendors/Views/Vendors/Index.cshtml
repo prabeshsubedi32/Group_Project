@@ -4,14 +4,43 @@
 }
 
 
-
-
 <input type="button" name="name" value="GetData" onclick="GetData();" />
 <input id="idText" type="text" />
 <input type="button" name="name" value="getAdmin" onclick="getAdmin();" />
 
 <div id="admin"></div>
 <div id="singleAdmin"></div>
+
+<table>
+    <tr>
+        <td>UserName</td>
+        <td>
+            <input type="text" id="userName" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td>UserName</td>
+        <td>
+            <input type="text" id="name" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td>UserName</td>
+        <td>
+            <input type="text" id="id" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td>UserName</td>
+        <td>
+            <input type="text" id="password" value="" />
+        </td>
+    </tr>
+
+</table>
+<input type="submit" name="Save" value="Save" onclick="PostValues();" />
+
+
 
 
 @Scripts.Render("~/bundles/jquery")
@@ -22,16 +51,16 @@
     <script>
 
 
-        function getAdmin(){
+        function getAdmin() {
             var html;
             $.get("http://localhost:51701/api/values/" + $("#idText").val(), function (data) {
                 html = "<table border='1'>";
-               
-               
-                    html = html + "<tr>"
-                    html = html + "<td>" + data.Id + "</td>" + "<td>" + data.UserName + "</td>"
-                    html = html + "</tr>"
-   
+
+
+                html = html + "<tr>"
+                html = html + "<td>" + data.Id + "</td>" + "<td>" + data.UserName + "</td>"
+                html = html + "</tr>"
+
                 html = html + "</table>"
                 $("#singleAdmin").append(html);
             });
@@ -52,6 +81,39 @@
             });
         }
 
+        function PostValues() {
+            debugger;
+            var UserName = $("#userName").val();
+            var Id = $("#id").val();
+            var Name = $("#name").val();
+            var password = $("#password").val();
+
+
+            var sendInfo = {
+                Name: name,
+                UserName: UserName,
+                Id: Id,
+                UserPassword: password
+            };
+            $.get("http://localhost:51701/post?Id=1&UserName=dffdf&UserPassword=fdfd&Name=dsdsdsds", function (data) {  });
+                //$.post({
+            //    type: "POST",
+            //    url: "http://localhost:51701/api/values?Id=1&UserName=dffdf&UserPassword=fdfd&Name=dsdsdsds",
+            //    dataType: "json",
+            //    success: function (msg) {
+            //        debugger
+            //        if (msg) {
+            //            alert("Somebody" + name + " was added in list !");
+            //            location.reload(true);
+            //        } else {
+            //            alert("Cannot add to list !");
+            //        }
+            //    },
+
+            //    data: JSON.stringify(sendInfo)
+            //});
+        }
+        
 
     </script>
 

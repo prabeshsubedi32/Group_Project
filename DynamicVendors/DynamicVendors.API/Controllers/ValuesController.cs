@@ -32,7 +32,9 @@ namespace DynamicVendors.API.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        [Route("post")]
+        [HttpGet]
+        public void Post(string Name, string UserName, string Id, string UserPassword)
         {
         }
 
